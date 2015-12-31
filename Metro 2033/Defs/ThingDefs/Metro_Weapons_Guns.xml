@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+  <!-- Parent Defs ============================================================== -->
+
+  <ThingDef Name="BaseGun" Abstract="True">
+    <category>Item</category>
+    <thingClass>ThingWithComps</thingClass>
+    <equipmentType>Primary</equipmentType>
+    <pathCost>10</pathCost>
+    <useHitPoints>True</useHitPoints>
+    <selectable>True</selectable>
+    <graphicData>
+      <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+    </graphicData>
+    <drawGUIOverlay>true</drawGUIOverlay>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <DeteriorationRate>1</DeteriorationRate>
+      <SellPriceFactor>0.5</SellPriceFactor>
+    </statBases>
+    <altitudeLayer>Item</altitudeLayer>
+    <alwaysHaulable>True</alwaysHaulable>
+    <tickerType>Never</tickerType>
+    <techLevel>Midworld</techLevel>
+    <thingCategories>
+      <li>WeaponsRanged</li>
+    </thingCategories>
+    <inspectorTabs>
+	  <!-- ITab_Bills (bills tab)-->
+      <li>ITab_Art</li>
+    </inspectorTabs>
+    <comps>
+      <li>
+        <compClass>CompForbiddable</compClass>
+      </li>
+      <li>
+        <compClass>CompEquippable</compClass>
+      </li>
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li>
+        <compClass>CompArt</compClass>
+        <nameMaker>NamerGun</nameMaker>
+        <descriptionMaker>ArtWeaponGun</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+    </comps>
+    <smeltProducts>
+      <Steel>20</Steel>
+    </smeltProducts>
+  </ThingDef>
+
+  <ThingDef Name="BaseHumanGun" ParentName="BaseGun" Abstract="True">
+    <weaponTags>
+      <li>Gun</li>
+    </weaponTags>
+  </ThingDef>
+
+  <ThingDef Name="BaseBullet" Abstract="True">
+    <category>Projectile</category>
+    <tickerType>Normal</tickerType>
+    <altitudeLayer>Projectile</altitudeLayer>
+    <thingClass>Bullet</thingClass>
+    <label>bullet</label>
+    <useHitPoints>False</useHitPoints>
+    <neverMultiSelect>True</neverMultiSelect>
+    <graphicData>
+      <shaderType>Transparent</shaderType>
+    </graphicData>
+  </ThingDef>
+
+  <!-- Bullets Defs ============================================================== -->
+  
+  	<!-- Dirty Bullet Core --> 
+  <ThingDef Name="BU_DirtyBullet" ParentName="BaseBullet" Abstract="True">
+    <label>Dirty Bullet</label>
+	<graphicData>
+		<texPath>Metro/Weapons/Bullets/DirtyBullet</texPath>
+		<graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+	<projectile>
+	  <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <speed>90</speed>
+    </projectile>
+  </ThingDef>
+  	<!-- Dirty Bullet High -->   
+  <ThingDef ParentName="BU_DirtyBullet">
+    <defName>BU_DirtyBullet_High</defName>
+	<projectile>
+      <damageAmountBase>12</damageAmountBase>
+    </projectile>
+  </ThingDef>
+  	<!-- Dirty Bullet Normal -->   
+  <ThingDef ParentName="BU_DirtyBullet">
+    <defName>BU_DirtyBullet_Normal</defName>
+	<projectile>
+      <damageAmountBase>9</damageAmountBase>
+    </projectile>
+  </ThingDef>
+    <!-- Dirty Bullet Low --> 
+  <ThingDef ParentName="BU_DirtyBullet">
+    <defName>BU_DirtyBullet_Low</defName>
+	<projectile>
+      <damageAmountBase>6</damageAmountBase>
+    </projectile>
+  </ThingDef>
+
+
+  <!-- Assault Rifles Defs ============================================================== -->
+  
+	<!-- Kalash 2012 - Dirty Bullet --> 
+  <ThingDef ParentName="BaseGun">
+    <defName>AR_2012Kalash</defName>
+    <label>Kalash 2012</label>
+    <description>At the start of World War 3 this was the best assault rifle use by the army. It is extremely sought after in the Metro due to its great performance.</description>
+    <graphicData>
+		<texPath>Metro/Weapons/AssaultRifles/AK2012</texPath>
+		<graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+	<soundInteract>InteractRifle</soundInteract>
+    <statBases>
+      <MarketValue>800</MarketValue>
+	  <!-- High Accuracy -->
+      <AccuracyTouch>0.90</AccuracyTouch>
+      <AccuracyShort>0.75</AccuracyShort>
+      <AccuracyMedium>0.50</AccuracyMedium>
+      <AccuracyLong>0.25</AccuracyLong>
+	  <!-- Reload time -->
+      <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+    </statBases>
+	<weaponTags>
+	  <li>Weapon_AssaultRifle</li>
+    </weaponTags>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+		<!-- DB High -->
+        <projectileDef>BU_DirtyBullet_High</projectileDef>
+		<!-- Iron Sight -->
+        <warmupTicks>72</warmupTicks>
+		
+        <range>35</range>
+		<!-- Magazine -->
+        <burstShotCount>40</burstShotCount>
+		<!-- High rate of fire -->
+        <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+		
+        <soundCast>ShotAssaultRifle</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+		<muzzleFlashScale>8</muzzleFlashScale>
+      </li>
+    </verbs>
+	<!-- Metro Weapons Guns Properties -->
+	<comps>
+      <li Class="Metro2033.CompProperties_Metro_Weapons_Guns">
+        <compClass>Metro2033.Comp_Metro_Reload</compClass>
+        <magRounds>40</shotVariation>
+      </li>
+    </comps>
+  </ThingDef>
+
+	<!-- Kalash (AK74M) -->	
+  <ThingDef ParentName="BaseGun">
+    <defName>AR_AK74M</defName>
+    <label>Kalash</label>
+    <description>The Classic pre-war assault rifle. Despite being very common, it is held in high regard in the Metrodue to its reliability and performance.</description>
+    <graphicData>
+		<texPath>Metro/Weapons/AssaultRifles/AK74M</texPath>
+		<graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+	<soundInteract>InteractRifle</soundInteract>
+    <statBases>
+      <MarketValue>450</MarketValue>
+	  <!-- Medium Accuracy -->
+      <AccuracyTouch>0.90</AccuracyTouch>
+      <AccuracyShort>0.70</AccuracyShort>
+      <AccuracyMedium>0.35</AccuracyMedium>
+      <AccuracyLong>0.18</AccuracyLong>
+	  <!-- Reload time -->
+      <RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
+    </statBases>
+	<weaponTags>
+	  <li>Weapon_AssaultRifle</li>
+    </weaponTags>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+		<!-- DB Normal -->
+        <projectileDef>BU_DirtyBullet_Normal</projectileDef>
+		<!-- Iron Sight -->
+        <warmupTicks>72</warmupTicks>
+		
+        <range>35</range>
+		<!-- Magazine -->
+        <burstShotCount>30</burstShotCount>
+		<!-- Normal rate of fire -->
+        <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+		
+        <soundCast>ShotAssaultRifle</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+		<muzzleFlashScale>8</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  	<!-- Bastard -->
+  <ThingDef ParentName="BaseGun">
+    <defName>AR_Bastard</defName>
+    <label>Bastard</label>
+    <description>This makeshift SMG has a high rate of fire which makes it overheat and jam rather rapidly, hence the weapon's name.</description>
+    <graphicData>
+		<texPath>Metro/Weapons/AssaultRifles/Bastard</texPath>
+		<graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+	<soundInteract>InteractRifle</soundInteract>
+    <statBases>
+      <MarketValue>150</MarketValue>
+	  <!-- Low Accuracy -->
+      <AccuracyTouch>0.90</AccuracyTouch>
+      <AccuracyShort>0.65</AccuracyShort>
+      <AccuracyMedium>0.25</AccuracyMedium>
+      <AccuracyLong>0.08</AccuracyLong>
+	  <!-- Reload time -->
+      <RangedWeapon_Cooldown>1.35</RangedWeapon_Cooldown>
+    </statBases>
+	<weaponTags>
+	  <li>Weapon_AssaultRifle</li>
+    </weaponTags>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+		<!-- DB High -->
+        <projectileDef>BU_DirtyBullet_High</projectileDef>
+		<!-- Iron Sight -->
+        <warmupTicks>72</warmupTicks>
+		
+        <range>30</range>
+		<!-- Magazine -->
+        <burstShotCount>15</burstShotCount>
+		<!-- High rate of fire -->
+        <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+		
+        <soundCast>ShotAssaultRifle</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+		<muzzleFlashScale>8</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+  
+  	<!-- VSV -->
+  <ThingDef ParentName="BaseGun">
+    <defName>AR_VSV</defName>
+    <label>VSV</label>
+    <description>An accurate and powerfull assault rifle goof for medium range combat. Its somewhat low muzzle velocity translates into lower noise and faster bullet drop.</description>
+    <graphicData>
+		<texPath>Metro/Weapons/AssaultRifles/VSK94</texPath>
+		<graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+	<soundInteract>InteractRifle</soundInteract>
+    <statBases>
+      <MarketValue>500</MarketValue>
+	  <!-- High Accuracy -->
+      <AccuracyTouch>0.90</AccuracyTouch>
+      <AccuracyShort>0.75</AccuracyShort>
+      <AccuracyMedium>0.50</AccuracyMedium>
+      <AccuracyLong>0.25</AccuracyLong>
+	  <!-- Reload time -->
+      <RangedWeapon_Cooldown>0.8</RangedWeapon_Cooldown>
+    </statBases>
+	<weaponTags>
+	  <li>Weapon_AssaultRifle</li>
+    </weaponTags>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+		<!-- DB High -->
+        <projectileDef>BU_DirtyBullet_High</projectileDef>
+		<!-- Iron Sight -->
+        <warmupTicks>72</warmupTicks>
+		
+        <range>25</range>
+		<!-- Magazine -->
+        <burstShotCount>20</burstShotCount>
+		<!-- Medium rate of fire -->
+        <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+		
+        <soundCast>ShotAssaultRifle</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+		<muzzleFlashScale>4</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+  
+  	<!-- RPK -->
+  <ThingDef ParentName="BaseGun">
+    <defName>AR_RPK</defName>
+    <label>RPK</label>
+    <description>This classic pre-war light machine gun has a great range and is very precise, at the same time being able to handle long bursts.</description>
+    <graphicData>
+		<texPath>Metro/Weapons/AssaultRifles/RPK74</texPath>
+		<graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+	<soundInteract>InteractRifle</soundInteract>
+    <statBases>
+      <MarketValue>750</MarketValue>
+	  <!-- High Accuracy -->
+      <AccuracyTouch>0.90</AccuracyTouch>
+      <AccuracyShort>0.75</AccuracyShort>
+      <AccuracyMedium>0.50</AccuracyMedium>
+      <AccuracyLong>0.25</AccuracyLong>
+	  <!-- Reload time -->
+      <RangedWeapon_Cooldown>0.8</RangedWeapon_Cooldown>
+    </statBases>
+	<weaponTags>
+	  <li>Weapon_AssaultRifle</li>
+    </weaponTags>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+		<!-- DB High -->
+        <projectileDef>BU_DirtyBullet_High</projectileDef>
+		<!-- Iron Sight -->
+        <warmupTicks>72</warmupTicks>
+		
+        <range>35</range>
+		<!-- Magazine -->
+        <burstShotCount>45</burstShotCount>
+		<!-- Medium rate of fire -->
+        <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+		
+        <soundCast>ShotAssaultRifle</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+		<muzzleFlashScale>12</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+  
+</ThingDefs>
