@@ -53,8 +53,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CompProperties_Metro_Weapons_Guns.cs" />
-    <Compile Include="Comp_Metro_Weapons_Guns.cs" />
+    <Compile Include="CompReloader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Verb_Shoot_Metro_Weapon.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
