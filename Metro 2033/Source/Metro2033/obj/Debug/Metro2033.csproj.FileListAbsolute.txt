@@ -1,0 +1,4 @@
+C:\Users\Kevin\Documents\GitHub\Metro2033\Assemblies\Metro2033.dll
+C:\Users\Kevin\Documents\GitHub\Metro2033\Metro 2033\Source\Metro2033\obj\Debug\Metro2033.csprojResolveAssemblyReference.cache
+C:\Users\Kevin\Documents\GitHub\Metro2033\Metro 2033\Source\Metro2033\obj\Debug\Metro2033.dll
+C:\Users\Kevin\Documents\GitHub\Metro2033\Metro 2033\Assemblies\Metro2033.dll

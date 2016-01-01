@@ -158,8 +158,8 @@
 	<!-- Metro Weapons Guns Properties -->
 	<comps>
       <li Class="Metro2033.CompProperties_Metro_Weapons_Guns">
-        <compClass>Metro2033.Comp_Metro_Reload</compClass>
-        <magRounds>40</shotVariation>
+        <compClass>Metro2033.Comp_Metro_Weapons_Guns</compClass>
+        <magRounds>40</magRounds>
       </li>
     </comps>
   </ThingDef>
