@@ -320,26 +320,26 @@
       <RangedWeapon_Cooldown>0.8</RangedWeapon_Cooldown>
     </statBases>
     <weaponTags>
-    	<li>Weapon_AssaultRifle</li>
+		<li>Weapon_AssaultRifle</li>
     </weaponTags>
     <verbs>
       <li>
         <verbClass>Verb_Shoot</verbClass>
-        <hasStandardCommand>true</hasStandardCommand>
-	<!-- DB High -->
+		<hasStandardCommand>true</hasStandardCommand>
+		<!-- DB High -->
         <projectileDef>BU_DirtyBullet_High</projectileDef>
-	<!-- Iron Sight -->
+		<!-- Iron Sight -->
         <warmupTicks>72</warmupTicks>
 		
         <range>35</range>
-	<!-- Magazine -->
+		<!-- Magazine -->
         <burstShotCount>45</burstShotCount>
-	<!-- Medium rate of fire -->
+		<!-- Medium rate of fire -->
         <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
 		
         <soundCast>ShotAssaultRifle</soundCast>
         <soundCastTail>GunTail_Medium</soundCastTail>
-	<muzzleFlashScale>12</muzzleFlashScale>
+		<muzzleFlashScale>12</muzzleFlashScale>
       </li>
     </verbs>
   </ThingDef>
