@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Metro2033.CompProperties_Metro_Weapons_Guns">
+    <Position X="0.75" Y="11.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CompProperties_Metro_Weapons_Guns.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Metro2033.CompReloader">
+    <Position X="14" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAIAAA=</HashCode>
+      <FileName>CompReloader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Metro2033.Verb_Shoot_Metro_Weapon">
+    <Position X="0.75" Y="9.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Verb_Shoot_Metro_Weapon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Verse.CompProperties">
+    <Position X="4.25" Y="11.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Verse.ThingComp">
+    <Position X="17.25" Y="4.75" Width="2.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Verse.Verb_Shoot">
+    <Position X="1" Y="7.5" Width="1.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="System.Object">
+    <Position X="14.25" Y="1.25" Width="1.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Verse.Verb_LaunchProjectile">
+    <Position X="1" Y="5.25" Width="2.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Verse.Verb">
+    <Position X="5" Y="0.75" Width="2.5" />
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Field Name="verbProps" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Verse.VerbProperties">
+    <Position X="8.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
